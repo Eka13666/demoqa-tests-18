@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -27,8 +28,9 @@ public class PracticeFormTest {
     $(".react-datepicker__year-select").$(byText("1991")).click();
     $(".react-datepicker__month-select").$(byText("October")).click();
     $(".react-datepicker__day.react-datepicker__day--013").click();
-    $("#subjectsInput").setValue("Information technology").pressEnter();
-    $("#hobbiesWrapper").$(byText("Music")).click();
+    $("#subjectsInput").setValue("History");
+    $("#subjectsWrapper .subjects-auto-complete__option").click();
+    $(By.cssSelector("label[for='hobbies-checkbox-3']")).click();
     $("#uploadPicture").uploadFromClasspath("pictures/img1.jpeg");
     $("#currentAddress").setValue("Address 1, 21");
     $("#state").click();
@@ -37,8 +39,9 @@ public class PracticeFormTest {
     $("#stateCity-wrapper").$(byText("Lucknow")).click();
     $("#submit").click();
 
+    $(".modal-header").shouldHave(text("Thanks for submitting the form"));
     $(".modal-body").shouldHave(text("Eka Ekova"), text("testtttt@mail.ru"),
-            text("Female"), text("8909990909"), text("13 October,1991"), text("Information technology"),
+            text("Female"), text("8909990909"), text("13 October,1991"), text("History"),
             text("Music"), text("img1.jpeg"), text("Address 1, 21"), text("Uttar Pradesh Lucknow"));
   }
 }
