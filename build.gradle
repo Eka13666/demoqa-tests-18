@@ -8,9 +8,11 @@ repositories {
 
 dependencies {
     testImplementation (
-            "com.codeborne:selenide:6.11.2",
+            "com.codeborne:selenide:6.12.2",
             "org.junit.jupiter:junit-jupiter:5.9.2",
-            "io.github.bonigarcia:webdrivermanager:4.4.3")
+            "io.github.bonigarcia:webdrivermanager:4.4.3",
+            "com.github.javafaker:javafaker:1.0.2"
+    )
 }
 
 tasks.withType(JavaCompile) {
