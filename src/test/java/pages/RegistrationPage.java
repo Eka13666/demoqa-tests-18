@@ -16,11 +16,11 @@ public class RegistrationPage {
           firstNameInput = $("#firstName"),
           lastNameInput = $("#lastName"),
           emailInput = $("#userEmail"),
-          genderInput = $(byText("Female")),
+          genderInput = $("#genterWrapper"),
           phoneInput = $("#userNumber"),
           subjectsInput = $("#subjectsInput"),
           subjectsClick = $("#subjectsWrapper .subjects-auto-complete__option"),
-          hobbiesInput = $(By.cssSelector("label[for='hobbies-checkbox-3']")),
+          hobbiesInput = $("#hobbiesWrapper"),
           pictureUpload = $("#uploadPicture"),
           addressInput = $("#currentAddress"),
           stateInput = $("#state"),
@@ -56,8 +56,8 @@ public class RegistrationPage {
     return this;
   }
 
-  public RegistrationPage setGender (String gender) {
-    genderInput.click();
+  public RegistrationPage setGender (String value) {
+    genderInput.$(byText(value)).click();
 
     return this;
   }
@@ -81,14 +81,14 @@ public class RegistrationPage {
     return this;
   }
 
-  public RegistrationPage setHobbies (String hobbies) {
-    hobbiesInput.click();
+  public RegistrationPage setHobbies (String value) {
+    hobbiesInput.$(byText(value)).click();
 
     return this;
   }
 
-  public RegistrationPage setPicture (String location) {
-    pictureUpload.uploadFromClasspath("pictures/img1.jpeg");
+  public RegistrationPage setPicture (String value) {
+    pictureUpload.uploadFromClasspath(value);
 
     return this;
   }
