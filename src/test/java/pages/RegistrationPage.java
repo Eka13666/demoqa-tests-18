@@ -133,13 +133,14 @@ public class RegistrationPage {
     return this;
   }
 
-  @Step("Проверка соответствия введённых значений")
+  @Step("Проверка сообщения в модальном окне")
   public RegistrationPage verifyResultsModalAppears() {
     registrationResultsModal.verifyModalAppears();
 
     return this;
   }
 
+  @Step("Проверка соответствия всех введённых значений")
   public RegistrationPage verifyResult (String key, String value) {
     registrationResultsModal.verifyResult(key, value);
 
