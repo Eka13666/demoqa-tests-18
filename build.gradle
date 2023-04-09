@@ -37,8 +37,14 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-task registration_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("registration")
-    }
-}
+   task registration_test(type: Test) {
+       useJUnitPlatform {
+           includeTags("registration")
+       }
+
+       task faker_test(type: Test) {
+           useJUnitPlatform {
+               includeTags("faker")
+           }
+       }
+   }

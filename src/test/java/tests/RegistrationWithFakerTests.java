@@ -7,6 +7,7 @@ import static tests.TestData.userName;
 
 public class RegistrationWithFakerTests extends TestBase{
   @Tag("registration")
+  @Tag("faker")
   @Test
     void fillFormTest() {
       registrationPage.openPage()
