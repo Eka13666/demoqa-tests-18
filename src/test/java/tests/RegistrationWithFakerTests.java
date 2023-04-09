@@ -1,11 +1,13 @@
 package tests;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static tests.TestData.*;
 import static tests.TestData.userName;
 
 
 public class RegistrationWithFakerTests extends TestBase{
-    @Test
+  @Tag("registration")
+  @Test
     void fillFormTest() {
       registrationPage.openPage()
               .setFirstName(userName)
