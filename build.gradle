@@ -31,12 +31,26 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:5.9.2",
             "com.github.javafaker:javafaker:1.0.2",
             "io.qameta.allure:allure-selenide:2.21.0",
+            "org.slf4j:slf4j-simple:2.0.6",
             "io.github.bonigarcia:webdrivermanager:5.3.2")
 }
 
 test {
     useJUnitPlatform()
 }
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+    
    task registration_test(type: Test) {
        useJUnitPlatform {
            includeTags("registration")
