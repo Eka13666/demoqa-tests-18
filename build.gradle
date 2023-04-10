@@ -37,6 +37,13 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+    }
+    
+    
    task registration_test(type: Test) {
        useJUnitPlatform {
            includeTags("registration")
